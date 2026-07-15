@@ -46,3 +46,11 @@ The password generation follows three clear steps:
 ### Example Output:
 ```text
 ZestyToad3!8@
+
+How to Test
+The quickest way to run and test this generator without any local setup is using DartPad, a free, interactive online editor for Dart.
+1. Copy the source code of the generator (usually found in your ⁠main.dart⁠ file).
+2. Go to dartpad.dev in your web browser.
+3. Paste the code into the editor window, replacing any existing starter code.
+4. Click the Run button at the top to generate a password right in your browser!
+
