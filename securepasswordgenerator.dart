@@ -1,9 +1,9 @@
 import 'dart:math';
 
 void main() {
-  var random = Random();
+  final random = Random();
 
-  List<String> adjectives = [
+  const adjectives = [
     "Barmy",
     "Bossy",
     "Bulgy",
@@ -55,7 +55,8 @@ void main() {
     "Zippy",
     "Zooky",
   ];
-  List<String> nouns = [
+
+  const nouns = [
     "Bongo",
     "Booby",
     "Boozer",
@@ -107,21 +108,22 @@ void main() {
     "Voodoo",
     "Zombie",
   ];
-  List<String> numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  List<String> symbols = ["!", "@", "#", "%", "&"];
-  List<String> numbersAndSymbols = [];
-  List<String> targetList = [];
 
-  targetList.add(adjectives[random.nextInt(adjectives.length)]);
-  targetList.add(nouns[random.nextInt(adjectives.length)]);
+  const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  const symbols = ["!", "@", "#", "%", "&"];
 
-  for (var n = 0; n <= 1; n++) {
-    numbersAndSymbols.add(numbers[random.nextInt(numbers.length)]);
-    numbersAndSymbols.add(symbols[random.nextInt(symbols.length)]);
-  }
+  final numbersAndSymbols = [
+    for (var i = 0; i < 2; i++) ...[
+      numbers[random.nextInt(numbers.length)],
+      symbols[random.nextInt(symbols.length)],
+    ],
+  ]..shuffle(random);
 
-  numbersAndSymbols.shuffle();
-  targetList.addAll(numbersAndSymbols);
+  final targetList = [
+    adjectives[random.nextInt(adjectives.length)],
+    nouns[random.nextInt(nouns.length)],
+    ...numbersAndSymbols,
+  ];
 
   print(targetList.join());
 }
